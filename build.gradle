@@ -48,9 +48,9 @@ allprojects {
         // https://raw.githubusercontent.com/checkstyle/checkstyle/checkstyle-7.4/src/main/resources/google_checks.xml
         // the version should be as same as plugin version
         showViolations = true
-        configFile File("config/checkstyle/checkstyle_8_43.xml")
+        configFile file("config/checkstyle/checkstyle_8_43.xml")
         source 'entry/src/main/java'
-        source 'tickseekbar/src/main/java'
+        source 'flexiblesearchbarview/src/main/java'
         include '**/*.java'
         exclude '**/gen/**'
         exclude '**/R.java'
