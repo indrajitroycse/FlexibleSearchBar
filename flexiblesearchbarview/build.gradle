@@ -1,5 +1,4 @@
 apply plugin: 'com.huawei.ohos.library'
-apply plugin:'checkstyle'
 
 ohos {
     compileSdkVersion 5
@@ -20,18 +19,4 @@ ohos {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.13'
-}
-
-checkstyle{
-    toolVersion = '8.43'
-}
-
-task checkstyle(type:Checkstyle) {
-    configFile new File(rootDir, "config/checkstyle/rules.xml")
-    source 'src'
-    include '**/*.java'
-    exclude '**/gen/**'
-    exclude '**/R.java'
-    exclude '**/BuildConfig.java'
-    classpath = files()
 }
