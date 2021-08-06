@@ -1,6 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply plugin: 'com.huawei.ohos.app'
 apply plugin: 'org.sonarqube'
+apply plugin: 'checkstyle'
 
 ohos {
     compileSdkVersion 5
@@ -22,7 +23,7 @@ buildscript {
     dependencies {
         classpath 'com.huawei.ohos:hap:2.4.4.2'
         classpath 'com.huawei.ohos:decctest:1.0.0.6'
-		classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.3'
+		classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.3"
     }
 }
 
@@ -37,24 +38,17 @@ allprojects {
         jcenter()
     }
 	
-	apply plugin: 'checkstyle'
     checkstyle {
-        // assign the latest checkstyle version explicitly
-        // default version is very old, likes 5.9
         toolVersion = '8.43'
     }
     task checkstyle(type: Checkstyle) {
-        // rules.xml copy from:
-        // https://raw.githubusercontent.com/checkstyle/checkstyle/checkstyle-7.4/src/main/resources/google_checks.xml
-        // the version should be as same as plugin version
         showViolations = true
         configFile file("config/checkstyle.xml")
-        source 'entry/src/main/java'
+        
+		source 'entry/src/main/java'
         source 'flexiblesearchbarview/src/main/java'
         include '**/*.java'
-        exclude '**/gen/**'
-        exclude '**/R.java'
-        exclude '**/BuildConfig.java'
+
         classpath = files()
     }
 
