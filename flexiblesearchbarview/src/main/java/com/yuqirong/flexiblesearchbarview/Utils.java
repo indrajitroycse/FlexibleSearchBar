@@ -3,7 +3,6 @@ package com.yuqirong.flexiblesearchbarview;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Optional;
-
 import ohos.global.resource.Resource;
 import ohos.hiviewdfx.HiLog;
 import ohos.hiviewdfx.HiLogLabel;

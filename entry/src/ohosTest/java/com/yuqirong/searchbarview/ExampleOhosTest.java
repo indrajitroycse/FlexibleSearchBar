@@ -1,12 +1,13 @@
 package com.yuqirong.searchbarview;
 
-import com.yuqirong.flexiblesearchbarview.SearchBarView;
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+
 import ohos.aafwk.ability.delegation.AbilityDelegatorRegistry;
 import ohos.agp.utils.Color;
 import ohos.app.Context;
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import com.yuqirong.flexiblesearchbarview.SearchBarView;
 
 /**
  * ExampleOhosTest class
@@ -15,11 +16,11 @@ public class ExampleOhosTest {
     /**
      * Context
      */
-    final private Context context = AbilityDelegatorRegistry.getAbilityDelegator().getAppContext();
+    private final Context context = AbilityDelegatorRegistry.getAbilityDelegator().getAppContext();
     /**
      * Custom View
      */
-    final private SearchBarView searchBarView = new SearchBarView(context);
+    private final SearchBarView searchBarView = new SearchBarView(context);
 
     /**
      * bundle test-case

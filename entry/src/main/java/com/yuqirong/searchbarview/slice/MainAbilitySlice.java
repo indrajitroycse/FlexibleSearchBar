@@ -1,8 +1,5 @@
 package com.yuqirong.searchbarview.slice;
 
-import com.yuqirong.flexiblesearchbarview.SearchBarView;
-import com.yuqirong.searchbarview.ResourceTable;
-
 import java.io.IOException;
 
 import ohos.aafwk.ability.AbilitySlice;
@@ -17,6 +14,9 @@ import ohos.agp.window.dialog.ToastDialog;
 import ohos.app.Context;
 import ohos.global.resource.NotExistException;
 import ohos.global.resource.WrongTypeException;
+
+import com.yuqirong.flexiblesearchbarview.SearchBarView;
+import com.yuqirong.searchbarview.ResourceTable;
 
 /**
  * MainAbilitySlice class.

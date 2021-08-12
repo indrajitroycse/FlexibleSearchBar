@@ -385,7 +385,7 @@ public class SearchBarView extends Component implements Component.DrawTask, Comp
             final Paint.FontMetrics fontMetrics = searchPaint.getFontMetrics();
             final double textHeight = Math.ceil(fontMetrics.descent - fontMetrics.ascent);
             float x = (float) left + 2 * drawableRadius;
-            float y = (float) (float) (drawableRadius + textHeight / 2 - fontMetrics.descent);
+            float y = (float) (drawableRadius + textHeight / 2 - fontMetrics.descent);
             canvas.drawText(searchPaint, textPaint, x, y);
         }
     }

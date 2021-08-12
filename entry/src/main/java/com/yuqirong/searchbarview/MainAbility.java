@@ -1,9 +1,9 @@
 package com.yuqirong.searchbarview;
 
-import com.yuqirong.searchbarview.slice.MainAbilitySlice;
-
 import ohos.aafwk.ability.Ability;
 import ohos.aafwk.content.Intent;
+
+import com.yuqirong.searchbarview.slice.MainAbilitySlice;
 
 /**
  * MainAbility class.
