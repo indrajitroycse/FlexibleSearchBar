@@ -1,7 +1,5 @@
 package com.yuqirong.flexiblesearchbarview;
 
-import java.io.IOException;
-import java.util.Optional;
 import ohos.agp.animation.Animator;
 import ohos.agp.animation.AnimatorValue;
 import ohos.agp.components.AttrSet;
@@ -19,6 +17,8 @@ import ohos.global.resource.WrongTypeException;
 import ohos.hiviewdfx.HiLog;
 import ohos.hiviewdfx.HiLogLabel;
 import ohos.media.image.PixelMap;
+import java.io.IOException;
+import java.util.Optional;
 
 /**
  * SearchBarView class is Custom View.
