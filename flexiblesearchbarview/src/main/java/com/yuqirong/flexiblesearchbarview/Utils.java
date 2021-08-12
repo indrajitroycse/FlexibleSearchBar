@@ -11,6 +11,7 @@ import ohos.media.image.common.Size;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Optional;
+
 /**
  * Utils class.
  */
