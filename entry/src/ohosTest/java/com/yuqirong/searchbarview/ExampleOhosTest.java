@@ -15,11 +15,11 @@ public class ExampleOhosTest {
     /**
      * Context
      */
-    final private transient Context context = AbilityDelegatorRegistry.getAbilityDelegator().getAppContext();
+    final private Context context = AbilityDelegatorRegistry.getAbilityDelegator().getAppContext();
     /**
      * Custom View
      */
-    final private transient SearchBarView searchBarView = new SearchBarView(context);
+    final private SearchBarView searchBarView = new SearchBarView(context);
 
     /**
      * bundle test-case

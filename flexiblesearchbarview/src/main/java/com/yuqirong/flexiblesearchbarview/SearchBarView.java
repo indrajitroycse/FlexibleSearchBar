@@ -2,6 +2,7 @@ package com.yuqirong.flexiblesearchbarview;
 
 import java.io.IOException;
 import java.util.Optional;
+
 import ohos.agp.animation.Animator;
 import ohos.agp.animation.AnimatorValue;
 import ohos.agp.components.AttrSet;
@@ -135,6 +136,7 @@ public class SearchBarView extends Component implements Component.DrawTask, Comp
 
     /**
      * constructor.
+     *
      * @param context context
      */
     public SearchBarView(final Context context) {
@@ -144,7 +146,9 @@ public class SearchBarView extends Component implements Component.DrawTask, Comp
 
     /**
      * 2-arg constructor.
+     *
      * @param context context
+     *
      * @param attrs attrs
      */
     public SearchBarView(final Context context, final AttrSet attrs) {
@@ -153,8 +157,11 @@ public class SearchBarView extends Component implements Component.DrawTask, Comp
 
     /**
      * 3-arg constructor.
+     *
      * @param context context
+     *
      * @param attrs attrs
+     *
      * @param defStyle defstyle
      */
     public SearchBarView(final Context context, final AttrSet attrs, final String defStyle) {
@@ -195,6 +202,7 @@ public class SearchBarView extends Component implements Component.DrawTask, Comp
 
     /**
      * test or set for border color.
+     *
      * @param color color
      */
     public void setBorderColor(final Color color) {
@@ -204,6 +212,7 @@ public class SearchBarView extends Component implements Component.DrawTask, Comp
 
     /**
      * get border color for test case.
+     *
      * @return color
      */
     public Color getBorderColor() {
@@ -212,6 +221,7 @@ public class SearchBarView extends Component implements Component.DrawTask, Comp
 
     /**
      * test or set for border color paint.
+     *
      * @param color color
      */
     public void setBorderColorPaint(final Color color) {
@@ -221,6 +231,7 @@ public class SearchBarView extends Component implements Component.DrawTask, Comp
 
     /**
      * get border color paint for test case.
+     *
      * @return color
      */
     public Color getBorderColorPaint() {
@@ -237,7 +248,9 @@ public class SearchBarView extends Component implements Component.DrawTask, Comp
 
     /**
      * get pixelmap.
+     *
      * @param resourceId resourceId
+     *
      * @return pixelmap
      */
     private Optional<PixelMap> getPixelMapByResId(final int resourceId) {
@@ -264,21 +277,22 @@ public class SearchBarView extends Component implements Component.DrawTask, Comp
      * animation listeners.
      */
     private void animationListeners() {
-        final AnimatorValue.ValueUpdateListener valUpdateListen = (final AnimatorValue animatorValue, final float pos) -> {
-                if (openAnimation && offSet < (getWidth() - OFFSETINCREMENT)) {
-                    offSet = offSet + OFFSETINCREMENT;
-                    invalidate();
-                } else if (!openAnimation && offSet > 0) {
-                    offSet = offSet - OFFSETINCREMENT;
-                    invalidate();
-                }
+        final AnimatorValue.ValueUpdateListener listener = (final AnimatorValue animatorValue, final float pos) -> {
+            if (openAnimation && offSet < (getWidth() - OFFSETINCREMENT)) {
+                offSet = offSet + OFFSETINCREMENT;
+                invalidate();
+            } else if (!openAnimation && offSet > 0) {
+                offSet = offSet - OFFSETINCREMENT;
+                invalidate();
+            }
         };
-        openAnimationDurationAndListener(valUpdateListen);
-        closeAnimationDurationAndListener(valUpdateListen);
+        openAnimationDurationAndListener(listener);
+        closeAnimationDurationAndListener(listener);
     }
 
     /**
      * animation duration.
+     *
      * @param valUpdateListen valUpdateListen
      */
     private void openAnimationDurationAndListener(final AnimatorValue.ValueUpdateListener valUpdateListen) {
@@ -319,6 +333,7 @@ public class SearchBarView extends Component implements Component.DrawTask, Comp
 
     /**
      * closing anim duration.
+     *
      * @param valUpdateListen valUpdateListen
      */
     private void closeAnimationDurationAndListener(final AnimatorValue.ValueUpdateListener valUpdateListen) {
@@ -369,12 +384,15 @@ public class SearchBarView extends Component implements Component.DrawTask, Comp
         if (openAnimation) {
             final Paint.FontMetrics fontMetrics = searchPaint.getFontMetrics();
             final double textHeight = Math.ceil(fontMetrics.descent - fontMetrics.ascent);
-            canvas.drawText(searchPaint, textPaint, (float) left + 2 * drawableRadius, (float) (drawableRadius + textHeight / 2 - fontMetrics.descent));
+            float x = (float) left + 2 * drawableRadius;
+            float y = (float) (float) (drawableRadius + textHeight / 2 - fontMetrics.descent);
+            canvas.drawText(searchPaint, textPaint, x, y);
         }
     }
 
     /**
      * calc icon size.
+     *
      * @return RectF
      */
     private RectF calculateRectf() {
@@ -387,6 +405,7 @@ public class SearchBarView extends Component implements Component.DrawTask, Comp
 
     /**
      * calc white back-ground size.
+     *
      * @return RectF
      */
     private RectF calculateBounds() {
@@ -401,6 +420,7 @@ public class SearchBarView extends Component implements Component.DrawTask, Comp
 
     /**
      * to check anim is open.
+     *
      * @return isOPen
      */
     private boolean isOpen() {
@@ -409,6 +429,7 @@ public class SearchBarView extends Component implements Component.DrawTask, Comp
 
     /**
      * to check anim is close.
+     *
      * @return isClose
      */
     private boolean isClose() {
@@ -458,6 +479,7 @@ public class SearchBarView extends Component implements Component.DrawTask, Comp
 
     /**
      * to set anim status.
+     *
      * @param value value
      */
     private void setAnimationStatus(final boolean value) {
@@ -466,6 +488,7 @@ public class SearchBarView extends Component implements Component.DrawTask, Comp
 
     /**
      * check isOpened.
+     *
      * @return openAnimation
      */
     public boolean chekOpen() {

@@ -2,7 +2,9 @@ package com.yuqirong.searchbarview.slice;
 
 import com.yuqirong.flexiblesearchbarview.SearchBarView;
 import com.yuqirong.searchbarview.ResourceTable;
+
 import java.io.IOException;
+
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.content.Intent;
 import ohos.agp.components.BaseItemProvider;
@@ -35,11 +37,13 @@ public class MainAbilitySlice extends AbilitySlice {
         final Context mcontext = this;
         aplhabet = getContext().getStringArray(ResourceTable.Strarray_array);
         final ToastDialog toastDialog = new ToastDialog(mcontext);
-        final SearchBarView searchBarView = (SearchBarView) findComponentById(ResourceTable.Id_flexible_search_bar_view);
-        searchBarView.setClickedListener((final Component component) -> {
-            if (searchBarView.chekOpen()) {
+        final SearchBarView srchBrVw = (SearchBarView) findComponentById(ResourceTable.Id_flexible_search_bar_view);
+        srchBrVw.setClickedListener((final Component component) -> {
+            if (srchBrVw.chekOpen()) {
                 try {
-                    toastDialog.setText(getContext().getResourceManager().getElement(ResourceTable.String_enter_text).getString());
+                    String text;
+                    text = getContext().getResourceManager().getElement(ResourceTable.String_enter_text).getString();
+                    toastDialog.setText(text);
                 } catch (IOException | NotExistException | WrongTypeException e) {
                     e.printStackTrace();
                 }
@@ -51,9 +55,9 @@ public class MainAbilitySlice extends AbilitySlice {
         listContainer.setItemProvider(customAdapter);
         listContainer.setScrollListener(() -> {
             if (listContainer.getItemPosByVisibleIndex(0) == 0) {
-                searchBarView.startClose();
+                srchBrVw.startClose();
             } else {
-                searchBarView.startOpen();
+                srchBrVw.startOpen();
             }
         });
     }
@@ -89,7 +93,9 @@ public class MainAbilitySlice extends AbilitySlice {
 
         /**
          * Adapter constructor.
+         *
          * @param appContext appContext
+         *
          * @param args args
          */
         public CustomAdapter(final Context appContext, final String... args) {
