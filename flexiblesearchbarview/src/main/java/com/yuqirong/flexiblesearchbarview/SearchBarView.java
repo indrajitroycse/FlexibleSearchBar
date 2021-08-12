@@ -2,7 +2,6 @@ package com.yuqirong.flexiblesearchbarview;
 
 import java.io.IOException;
 import java.util.Optional;
-
 import ohos.agp.animation.Animator;
 import ohos.agp.animation.AnimatorValue;
 import ohos.agp.components.AttrSet;
